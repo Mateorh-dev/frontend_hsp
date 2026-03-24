@@ -1,4 +1,5 @@
 import { Text, View } from "react-native";
+import { styles } from "../assets/styles";
 
 export default function Index() {
   return (
@@ -9,7 +10,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Este es el sistema HSP.</Text>
+      <Text style={styles.text}>Este es el sistema HSP.</Text>
     </View>
   );
 }
