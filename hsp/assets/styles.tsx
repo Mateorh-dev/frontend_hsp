@@ -1,7 +1,13 @@
 import { StyleSheet } from "react-native";
+import { colors } from "./colors";
 
 export const styles = StyleSheet.create({
-    text: {color:"darkblue",},
+    texto: {color:colors.texto,},
+    fondo: {backgroundColor:colors.fondo,
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+    },
 });
 
 // Normal *oscuro
@@ -35,3 +41,9 @@ export const styles = StyleSheet.create({
 // Primario
 // #456BD5 A
 // #0046cc B
+
+// #F2F3F4
+// #D7DBDD
+
+// #34495E
+// #283747

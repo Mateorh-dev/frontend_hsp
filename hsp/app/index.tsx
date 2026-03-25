@@ -4,13 +4,9 @@ import { styles } from "../assets/styles";
 export default function Index() {
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      style={styles.fondo}
     >
-      <Text style={styles.text}>Este es el sistema HSP.</Text>
+      <Text style={styles.texto}>Este es el sistema HSP.</Text>
     </View>
   );
 }
