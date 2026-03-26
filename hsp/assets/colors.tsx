@@ -1,6 +1,19 @@
 export const colors = {
-    texto: "#FFAD00",
-    fondo: "#34495E",
+    primario:"#456BD5",
+    azul:"#456BD6",
+    amarillo:"#FFAD00",
+    verde:"#98ED00",
+    magenta:"#E73894",
+    claro:{
+        texto:"black",
+        fondo:"#F2F3F4",
+        borde:"#D7DBDD",
+    },
+    oscuro:{
+        texto:"white",
+        fondo:"#283747",
+        borde:"#34495E",
+    }
 } as const;
 
 export type ColorTheme = typeof colors;
