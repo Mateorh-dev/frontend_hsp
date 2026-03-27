@@ -1,9 +1,22 @@
 export const colors = {
     primario:"#456BD5",
+    tonosPrimario:{
+        100:"#dfe9fa",
+        200:"#c7daf6",
+        300:"#a0c2f0",
+        400:"#73a1e7",
+        500:"#5281df",
+        600:"#456bd5",
+        700:"#3452c1",
+        800:"#2f449e",
+        900:"#2b3c7d"
+    },
     azul:"#456BD6",
     amarillo:"#FFAD00",
     verde:"#98ED00",
     magenta:"#E73894",
+    blanco:"white",
+    negro:"blalck",
     claro:{
         texto:"black",
         fondo:"#F2F3F4",
