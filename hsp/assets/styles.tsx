@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors } from "./colors";
+import { colors } from "@/assets/colors";
 
 export const styles = StyleSheet.create({
     texto: {
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     boton: {
         // borderWidth:5,
         // borderColor:colors.claro.borde,
-        color:colors.blanco,
+        color:colors.tonosPrimario[100],
         borderRadius:18,
         backgroundColor:colors.primario,
         padding:9,
