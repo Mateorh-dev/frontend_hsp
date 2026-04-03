@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import {Link} from "expo-router";
-import { styles } from "../../assets/styles";
+import { styles } from "@/assets/styles";
 
 export default function IndexScreen() {
   return (
