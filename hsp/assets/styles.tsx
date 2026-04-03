@@ -22,5 +22,22 @@ export const styles = StyleSheet.create({
     error: {
         color:colors.magenta,
         fontWeight:"600",
-    }
+    },
+    marcoImagen: {
+        width:"80%",
+        maxHeight:"40%",
+        
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        
+        borderStyle:"dashed",
+        borderWidth:5,
+        borderRadius:20,
+
+        color:colors.tonosPrimario[400],
+        tintColor:colors.tonosPrimario[400],
+        borderColor:colors.tonosPrimario[400],
+        backgroundColor:colors.tonosPrimario[100],
+    },
 });
