@@ -7,6 +7,7 @@ export default function IndexScreen() {
     <View
       style={styles.fondo}
     >
+      <Text>Hola papá. 👍⚡</Text>
       <Text style={styles.texto}>Este es el sistema HSP.</Text>
       <Link href={"/about"} style={styles.boton}>
         About
