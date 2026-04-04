@@ -1,7 +1,7 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { styles } from "@/assets/styles";
-import { Ionicons } from "@expo/vector-icons";
-import { colors } from "@/assets/colors";
+import MarcoImagen from "@/components/MarcoImagen";
+import BotonAlert from "@/components/BotonAlert";
 // import { Image } from "expo-image";
 
 export default function PictureScreen() {
@@ -9,10 +9,12 @@ export default function PictureScreen() {
     <View
       style={styles.fondo}
     >
-      <View style={styles.marcoImagen}>
+      <MarcoImagen nameIcon="image-outline" escrito="Imagen tomada" conBorde />
+      <BotonAlert escrito="¡Presiona!"/>
+      {/* <View style={styles.marcoImagen}>
         <Ionicons name="image-outline" size={100} color={colors.primario}/>
         <Text style={[styles.texto, {color:colors.primario}]}>Imagen</Text>
-      </View>
+      </View> */}
     </View>
   );
 }
