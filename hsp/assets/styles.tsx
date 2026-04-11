@@ -1,9 +1,44 @@
 import { StyleSheet } from "react-native";
 import { colors } from "@/assets/colors";
+import { dimensions } from "./dimensions";
 
 export const styles = StyleSheet.create({
+    titulo: {
+        color: colors.claro.texto,
+        fontSize: dimensions.texto.xl,
+        fontWeight: "bold",
+    },
+    subtitulo: {
+        color: colors.claro.texto,
+        fontSize: dimensions.texto.l,
+        fontWeight: "bold",
+    },
     texto: {
         color:colors.claro.texto,
+        fontSize: dimensions.texto.m,
+    },
+    textoResaltado: {
+        color: colors.primario,
+    },
+    camposTexto: {
+        marginInline: dimensions.figura.xs,
+        marginBlock: dimensions.figura.xxs/2,
+    },
+    tituloInput: {
+        fontSize: dimensions.texto.m,
+        fontWeight: "bold",
+    },
+    inputSimple: {
+        borderRadius: dimensions.figura.xxs,
+        borderColor: colors.claro.borde,
+        borderWidth: 2,
+        paddingHorizontal: dimensions.figura.xs,
+        height: dimensions.figura.m,
+    },
+    inputResaltado: {
+        borderColor: colors.primario,
+        backgroundColor: colors.tonosPrimario[100],
+        paddingHorizontal: dimensions.figura.xs,
     },
     fondo: {
         backgroundColor:colors.claro.fondo,
@@ -18,6 +53,35 @@ export const styles = StyleSheet.create({
         borderRadius:18,
         backgroundColor:colors.primario,
         padding:9,
+    },
+    botonPrincipal: {
+        minHeight: dimensions.figura.m,
+        backgroundColor: colors.primario,
+        borderRadius: dimensions.figura.xs,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    contenidoBotonPrincipal: {
+        color: colors.blanco,
+        fontSize: dimensions.texto.m,
+        textAlign: "center",
+    },
+    botonSecundario: {
+        minHeight: dimensions.figura.m,
+        backgroundColor: colors.tonosPrimario[100],
+        borderRadius: dimensions.figura.xs,
+        padding: dimensions.figura.xs,
+        marginTop: dimensions.figura.xxs,
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        alignSelf:"flex-start",
+    },
+    contenidoBotonSecundario: {
+        color: colors.primario,
+        fontSize: dimensions.texto.m,
+        fontWeight: "bold",
     },
     error: {
         color:colors.magenta,
