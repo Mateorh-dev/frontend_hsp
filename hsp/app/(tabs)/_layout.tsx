@@ -43,6 +43,9 @@ export default function TabsLayout() {
       color={color}
       />,
       }}/>
+    <Tabs.Screen name="testeoComponentes" options={{
+      title:"Componentes"
+    }}/>
   </Tabs>
   );
 }
