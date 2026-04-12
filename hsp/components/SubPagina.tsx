@@ -1,6 +1,6 @@
 import { styles } from "@/assets/styles";
 import { useState } from "react";
-import { Modal, Pressable, Text, View } from "react-native";
+import { Modal, Pressable, ScrollView, Text, View } from "react-native";
 import Titulos from "./Titulos";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "@/assets/colors";
@@ -29,6 +29,7 @@ export default function SubPagina({children: contenido, tituloPagina, textoBoton
                 visible={visivilidadModal}
                 animationType="slide"
             >
+                <ScrollView>
                 <View style={styles.camposTexto}>
                 <Pressable style={styles.botonSecundario} onPress={() => actualizarVisivilidadModal(false)}>
                     <Ionicons name="arrow-back-outline" color={colors.primario} size={dimensions.texto.l}/>
@@ -37,6 +38,7 @@ export default function SubPagina({children: contenido, tituloPagina, textoBoton
                 </View>
                 <Titulos resaltado>{tituloPagina}</Titulos>
                 {contenido}
+                </ScrollView>
             </Modal>
         </View>
     );

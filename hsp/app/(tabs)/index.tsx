@@ -1,17 +1,25 @@
-import { Text, View } from "react-native";
-import {Link} from "expo-router";
+import { colors } from "@/assets/colors";
+import { dimensions } from "@/assets/dimensions";
 import { styles } from "@/assets/styles";
+import InputSimple from "@/components/InputSimple";
+import Subtitulos from "@/components/Subtitulos";
+import { Ionicons } from "@expo/vector-icons";
+import { ScrollView, View } from "react-native";
 
-export default function IndexScreen() {
+export default function ConsultarScreen() {
   return (
-    <View
-      style={styles.fondo}
-    >
-      <Text>Hola papá. 👍⚡</Text>
-      <Text style={styles.texto}>Este es el sistema HSP.</Text>
-      <Link href={"/about"} style={styles.boton}>
-        About
-      </Link>
+    <View style={{flex:1}}>
+      <Subtitulos resaltado>
+        Historial y Seguimiento de Pacientes 
+      </Subtitulos>
+      <InputSimple palceholder="Consultar">Consultar registro</InputSimple>
+      <View style={styles.fondo}>
+        <Ionicons
+          name={"folder-open-outline"}
+          size={dimensions.figura.xl}
+          color={colors.primario}
+        />
+      </View>
     </View>
   );
 }
