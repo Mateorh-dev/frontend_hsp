@@ -28,11 +28,20 @@ export default function TabsLayout() {
       color={color}
       />
     }}/>
+    <Tabs.Screen name="registrarTratamiento" options={{
+      headerTitle:"Registrar Tratamiento",
+      tabBarLabel:"Tratamientos",
+      tabBarIcon:({focused, color}) => <Ionicons
+      name={focused ? "document-text" : "document-text-outline"}
+      size={dimensions.figura.s}
+      color={color}
+      />
+    }}/>
     <Tabs.Screen name="index" options={{
       headerTitle:"HSP",
       tabBarLabel:"Consultar",
       tabBarIcon:({focused, color}) => <Ionicons
-      name={focused ? "search-sharp" : "search-outline"}
+      name={focused ? "search" : "search-outline"}
       size={dimensions.figura.s}
       color={color}
       />
@@ -41,7 +50,7 @@ export default function TabsLayout() {
       headerTitle:"Registrar Paciente",
       tabBarLabel:"Pacientes",
       tabBarIcon:({focused, color}) => <Ionicons
-      name={focused ? "people-sharp" : "people-outline"}
+      name={focused ? "people" : "people-outline"}
       size={dimensions.figura.s}
       color={color}
       />

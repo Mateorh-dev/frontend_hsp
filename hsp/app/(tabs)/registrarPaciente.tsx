@@ -1,4 +1,5 @@
 import InputSimple from "@/components/InputSimple";
+import InputFecha from "@/components/InputFecha";
 import { ScrollView } from "react-native";
 
 export default function PacientesScreen() {
@@ -8,16 +9,17 @@ export default function PacientesScreen() {
       <InputSimple>Segundo nombre</InputSimple>
       <InputSimple>Primer apellido</InputSimple>
       <InputSimple>Segundo apellido</InputSimple>
-      <InputSimple>No. identificación</InputSimple>
+      <InputSimple teclado="numeric" limiteCaracteres={15}>No. identificación</InputSimple>
       <InputSimple>Lugar de expedición</InputSimple>
-      <InputSimple>Fecha nacimiento</InputSimple>
-      <InputSimple palceholder="(kg)">Peso</InputSimple>
-      <InputSimple>Telefno</InputSimple>
-      <InputSimple>Correo</InputSimple>
+      <InputFecha>Fecha nacimiento</InputFecha>
+      <InputSimple teclado="numeric" limiteCaracteres={5} palceholder="(kg)">Peso</InputSimple>
+      <InputSimple teclado="numeric" limiteCaracteres={15} nombreIcono="call" posicionIcono="fuera">Telefono</InputSimple>
+      <InputSimple teclado="numeric" limiteCaracteres={15} nombreIcono="call" posicionIcono="dentro">Telefono</InputSimple>
+      <InputSimple teclado="email-address">Correo</InputSimple>
       <InputSimple>Direccion de residencia</InputSimple>
       <InputSimple>Profesion</InputSimple>
-      <InputSimple>Alergias</InputSimple>
-      <InputSimple>Antecedentes</InputSimple>
+      <InputSimple espacioAmplio>Alergias</InputSimple>
+      <InputSimple espacioAmplio>Antecedentes</InputSimple>
 
     </ScrollView>
   );
