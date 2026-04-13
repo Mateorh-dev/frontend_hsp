@@ -32,13 +32,21 @@ export const styles = StyleSheet.create({
         borderRadius: dimensions.figura.xxs,
         borderColor: colors.claro.borde,
         borderWidth: 2,
-        paddingHorizontal: dimensions.figura.xs,
-        height: dimensions.figura.m,
+        paddingHorizontal: dimensions.figura.xxs,
+        minHeight: dimensions.figura.m,
+        justifyContent: "center",
     },
     inputResaltado: {
         borderColor: colors.primario,
         backgroundColor: colors.tonosPrimario[100],
-        paddingHorizontal: dimensions.figura.xs,
+    },
+    componentesEnFila:{
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+    },
+    iconoEnFila:{
+        marginRight: dimensions.figura.xxs,
     },
     fondo: {
         backgroundColor:colors.claro.fondo,
@@ -82,6 +90,17 @@ export const styles = StyleSheet.create({
         color: colors.primario,
         fontSize: dimensions.texto.m,
         fontWeight: "bold",
+    },
+    opcion: {
+        textAlign: "center",
+        textAlignVertical: "center",
+        minHeight: dimensions.figura.m,
+        fontSize: dimensions.texto.l,
+    },
+    separador: {
+        backgroundColor: colors.claro.borde,
+        height: 2,
+        marginInline: dimensions.figura.xs,
     },
     error: {
         color:colors.magenta,
