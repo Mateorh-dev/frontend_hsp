@@ -23,15 +23,6 @@ export default function TabsLayout() {
       headerTitle:"Registrar Tratamiento",
       tabBarLabel:"Tratamientos",
       tabBarIcon:({focused, color}) => <Ionicons
-      name={focused ? "document-text-sharp" : "document-text-outline"}
-      size={dimensions.figura.s}
-      color={color}
-      />
-    }}/>
-    <Tabs.Screen name="registrarTratamiento" options={{
-      headerTitle:"Registrar Tratamiento",
-      tabBarLabel:"Tratamientos",
-      tabBarIcon:({focused, color}) => <Ionicons
       name={focused ? "document-text" : "document-text-outline"}
       size={dimensions.figura.s}
       color={color}
