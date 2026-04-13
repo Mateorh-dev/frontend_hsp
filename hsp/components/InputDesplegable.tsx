@@ -5,6 +5,7 @@ import Titulos from "./Titulos";
 import { Ionicons } from "@expo/vector-icons";
 import { dimensions } from "@/assets/dimensions";
 import { colors } from "@/assets/colors";
+import SeparadorHorizontal from "./SeparadorHorizontal";
 
 type Props = {
     children: React.ReactNode;
@@ -81,7 +82,7 @@ export default function InputDesplegable({children:titulo, palceholder, opciones
                         data={opciones}
                         keyExtractor={(item, index) => index.toString()}
                         ItemSeparatorComponent={
-                            () => (<View style={styles.separador}></View>)
+                            () => (<SeparadorHorizontal/>)
                         }
                         renderItem={({ item }) => (
                         <Pressable
