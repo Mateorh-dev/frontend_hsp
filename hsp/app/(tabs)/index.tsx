@@ -12,7 +12,7 @@ export default function ConsultarScreen() {
       <Subtitulos resaltado>
         Historial y Seguimiento de Pacientes 
       </Subtitulos>
-      <InputSimple palceholder="Consultar">Consultar registro</InputSimple>
+      <InputSimple palceholder="Consultar" nombreIcono="search" posicionIcono="fuera">Consultar registro</InputSimple>
       <View style={styles.fondo}>
         <Ionicons
           name={"folder-open-outline"}
