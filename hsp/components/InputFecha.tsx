@@ -12,7 +12,7 @@ type Props = {
     posicionIcono?: "dentro" | "fuera" ;
 };
 
-export default function InputSimple({children:titulo, nombreIcono, posicionIcono}: Props) {
+export default function InputFecha({children:titulo, nombreIcono, posicionIcono}: Props) {
     const [enfocado, actualizarEnfocado] = useState(false);
     // const enfocarCampo = useRef<TextInput>(null);
     
