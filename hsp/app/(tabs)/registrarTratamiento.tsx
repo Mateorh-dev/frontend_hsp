@@ -1,6 +1,6 @@
 import { colors } from "@/assets/colors";
 import { dimensions } from "@/assets/dimensions";
-// import InputDesplegable from "@/components/InputDesplegable";
+import InputDesplegable from "@/components/InputDesplegable";
 import InputSimple from "@/components/InputSimple";
 import SubPagina from "@/components/SubPagina";
 import Textos from "@/components/Textos";
@@ -18,7 +18,7 @@ export default function TratamientosScreen() {
         <InputSimple teclado="numeric">No. identificación</InputSimple>
         <InputSimple palceholder="(Cita/Control)" nombreIcono="newspaper" posicionIcono="fuera">Tipo</InputSimple>
         {/* <InputSimple>Estado</InputSimple> */}
-        {/* <InputDesplegable opciones={["1","2","3","4","5"]} palceholder="Pendiente / Asistio / Reprogramo">Estado (Desplegable)</InputDesplegable> nombreIcono="layers" posicionIcono="fuera" */}
+        <InputDesplegable opciones={["1","2","3","4","5"]} palceholder="Pendiente / Asistio / Reprogramo" nombreIcono="layers" posicionIcono="fuera">Estado (Desplegable)</InputDesplegable>
         <InputSimple>Patologia</InputSimple>
         <InputSimple teclado="numeric" nombreIcono="card" posicionIcono="fuera">Precio</InputSimple>
         <InputSimple>Tratamiento</InputSimple>
