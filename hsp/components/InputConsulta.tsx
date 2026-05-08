@@ -13,10 +13,10 @@ type Props = {
     espacioAmplio?: boolean;
     nombreIcono?: React.ComponentProps<typeof Ionicons>['name'];
     posicionIcono?: "dentro" | "fuera" ;
-    manejarCambio?: (text: string) => void;
+    funConsultar?: (text: string) => void;
 };
 
-export default function InputSimple({children:titulo, palceholder, teclado, limiteCaracteres, espacioAmplio, nombreIcono, posicionIcono,manejarCambio}: Props) {
+export default function InputConsulta({children:titulo, palceholder, teclado, limiteCaracteres, espacioAmplio, nombreIcono, posicionIcono,funConsultar}: Props) {
     const [enfocado, actualizarEnfocado] = useState(false);
     const enfocarCampo = useRef<TextInput>(null);
     
@@ -66,7 +66,7 @@ export default function InputSimple({children:titulo, palceholder, teclado, limi
                 ref={enfocarCampo}
                 placeholder={palceholder}
                 keyboardType={teclado}
-                onChangeText={manejarCambio}
+                onChangeText={funConsultar}
                 onFocus={() => actualizarEnfocado(true)}
                 onBlur={() => actualizarEnfocado(false)}
                 maxLength={limiteCaracteres}
