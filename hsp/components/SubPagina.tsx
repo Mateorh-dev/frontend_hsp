@@ -32,7 +32,7 @@ export default function SubPagina({children: contenido, tituloPagina, textoBoton
                 <ScrollView>
                 <View style={styles.camposTexto}>
                 <Pressable style={styles.botonSecundario} onPress={() => actualizarVisivilidadModal(false)}>
-                    <Ionicons name="arrow-back-outline" color={colors.primario} size={dimensions.texto.l}/>
+                    <Ionicons name="arrow-back" color={colors.primario} size={dimensions.texto.l}/>
                     <Text style={styles.contenidoBotonSecundario}>{textoBotonCerar}</Text>
                 </Pressable>
                 </View>

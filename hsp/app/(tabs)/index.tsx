@@ -1,6 +1,7 @@
 import { colors } from "@/assets/colors";
 import { dimensions } from "@/assets/dimensions";
 import { styles } from "@/assets/styles";
+import CardDatosPaciente from "@/components/CardDatosPaciente";
 import InputConsulta from "@/components/InputConsulta";
 import Subtitulos from "@/components/Subtitulos";
 import Textos from "@/components/Textos";
@@ -46,9 +47,10 @@ export default function ConsultarScreen() {
         </View>
       ) : (
         <ScrollView>
-          <Textos>
+          <CardDatosPaciente dato={datosUsuario}/>
+          {/* <Textos>
           {JSON.stringify(datosUsuario, null, 2)}
-          </Textos>
+          </Textos> */}
         </ScrollView>
       )}
     </View>
