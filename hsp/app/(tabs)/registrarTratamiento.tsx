@@ -7,10 +7,18 @@ import InputSimple from "@/components/InputSimple";
 import SeparadorHorizontal from "@/components/SeparadorHorizontal";
 import SubPagina from "@/components/SubPagina";
 import Textos from "@/components/Textos";
+import api from "@/src/configAxios";
 import { Ionicons } from "@expo/vector-icons";
+import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
 export default function TratamientosScreen() {
+  const [listaEstados, actualizarListaEstados] = useState<string[]>([]);
+  const gapiEstado = async () => {
+    const resultado = await api.get("selectall/estado?pagina=1");
+    actualizarListaEstados(resultado.data.map((item: any) => item.nombreEstado));
+  }
+  useEffect(() => { gapiEstado(); }, []);
   return (
     <ScrollView>
       <SubPagina tituloPagina="Nuevo Tratamiento">
@@ -59,8 +67,10 @@ export default function TratamientosScreen() {
           Tipo
         </InputDesplegable>
         <InputDesplegable 
-        opciones={["Pendiente","Asistio","No asistio","Seguimiento sede externa","Reprogramo","Cancelacion"]} 
-        palceholder="Pendiente / Asistio / Reprogramo" 
+        opciones={listaEstados} 
+        // opciones={["Pendiente","Asistio","No asistio","Seguimiento sede externa","Reprogramo","Cancelacion"]} 
+        // palceholder="Pendiente / Asistio / Reprogramo" 
+        palceholder={listaEstados.slice(0, 3).join(" / ")} 
         nombreIcono="layers" 
         posicionIcono="fuera"
         >
