@@ -11,10 +11,31 @@ export const colors = {
         800:"#2f449e",
         900:"#2b3c7d"
     },
-    azul:"#456BD6",
-    amarillo:"#FFAD00",
-    verde:"#98ED00",
-    magenta:"#E73894",
+    azul:{
+        claro: "#c6d9f7",
+        oscuro: "#3858B3",
+        medio: "#456BD6",
+    },
+    amarillo:{
+        claro: "#ffed85",
+        oscuro: "#B67A00",
+        medio: "#FFAD00",
+    },
+    verde:{
+        claro: "#ddff92",
+        oscuro: "#619A00",
+        medio: "#98ED00",
+    },
+    magenta:{
+        claro: "#fad0e9",
+        oscuro: "#DE358E",
+        medio: "#E73894",
+    },
+    gris:{
+        claro: "#D7DBDD",
+        oscuro: "#4f5a5f",
+        medio: "#6f777c",
+    },
     blanco:"white",
     negro:"blalck",
     claro:{

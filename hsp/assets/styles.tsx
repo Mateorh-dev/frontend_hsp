@@ -20,9 +20,14 @@ export const styles = StyleSheet.create({
     textoResaltado: {
         color: colors.primario,
     },
-    camposTexto: {
+    contenedor: {
         marginInline: dimensions.figura.xs,
         marginBlock: dimensions.figura.xxs/2,
+    },
+    marco: {
+        borderRadius: dimensions.figura.xxs,
+        borderColor: colors.claro.borde,
+        borderWidth: 2,
     },
     tituloInput: {
         fontSize: dimensions.texto.m,
@@ -40,12 +45,21 @@ export const styles = StyleSheet.create({
         borderColor: colors.primario,
         backgroundColor: colors.tonosPrimario[100],
     },
-    componentesEnFila:{
+    inputBloqueado: {
+        borderColor: colors.gris.medio,
+        backgroundColor: colors.claro.borde,
+    },
+    componentesEnFila: {
         flexDirection: "row",
         justifyContent: "flex-start",
         alignItems: "center",
     },
-    iconoEnFila:{
+    componentesEnFilaJustificado: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
+    iconoEnFila: {
         marginRight: dimensions.figura.xxs,
     },
     fondo: {
@@ -97,13 +111,47 @@ export const styles = StyleSheet.create({
         minHeight: dimensions.figura.m,
         fontSize: dimensions.texto.l,
     },
+    etiqueta: {
+        fontSize: dimensions.texto.s,
+        backgroundColor: colors.tonosPrimario[100],
+        borderRadius: dimensions.figura.m,
+        fontWeight: "bold",
+        fontFamily: "monospace",
+        alignSelf: "flex-start",
+        padding: dimensions.figura.xxs,
+    },
+    azul: {
+        color: colors.azul.oscuro,
+        backgroundColor: colors.azul.claro,
+        borderColor: colors.azul.oscuro,
+    },
+    amarillo: {
+        color: colors.amarillo.oscuro,
+        backgroundColor: colors.amarillo.claro,
+        borderColor: colors.amarillo.oscuro,
+    },
+    verde: {
+        color: colors.verde.oscuro,
+        backgroundColor: colors.verde.claro,
+        borderColor: colors.verde.oscuro,
+    },
+    magenta: {
+        color: colors.magenta.oscuro,
+        backgroundColor: colors.magenta.claro,
+        borderColor: colors.magenta.oscuro,
+    },
+    gris: {
+        color: colors.gris.oscuro,
+        backgroundColor: colors.gris.claro,
+        borderColor: colors.gris.oscuro,
+    },
     separador: {
         backgroundColor: colors.claro.borde,
         height: 2,
         marginInline: dimensions.figura.xs,
     },
     error: {
-        color:colors.magenta,
+        color:colors.magenta.medio,
         fontWeight:"600",
     },
     marcoImagen: {

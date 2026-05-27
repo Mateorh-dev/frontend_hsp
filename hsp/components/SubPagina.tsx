@@ -20,7 +20,7 @@ export default function SubPagina({children: contenido, tituloPagina, textoBoton
     }
     return (
         <View>
-            <View style={styles.camposTexto}>
+            <View style={styles.contenedor}>
             <Pressable style={styles.botonPrincipal} onPress={() => actualizarVisivilidadModal(true)}>
                 <Text style={styles.contenidoBotonPrincipal}>{textoBotonAbrir}</Text>
             </Pressable>
@@ -30,13 +30,13 @@ export default function SubPagina({children: contenido, tituloPagina, textoBoton
                 animationType="slide"
             >
                 <ScrollView>
-                <View style={styles.camposTexto}>
+                <View style={styles.contenedor}>
                 <Pressable style={styles.botonSecundario} onPress={() => actualizarVisivilidadModal(false)}>
                     <Ionicons name="arrow-back" color={colors.primario} size={dimensions.texto.l}/>
                     <Text style={styles.contenidoBotonSecundario}>{textoBotonCerar}</Text>
                 </Pressable>
                 </View>
-                <Titulos resaltado>{tituloPagina}</Titulos>
+                {tituloPagina ? <Titulos resaltado>{tituloPagina}</Titulos> : <></>}
                 {contenido}
                 </ScrollView>
             </Modal>
