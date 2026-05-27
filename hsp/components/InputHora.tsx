@@ -1,27 +1,33 @@
-import { colors } from "@/assets/colors";
-import { dimensions } from "@/assets/dimensions";
 import { styles } from "@/assets/styles";
-import { Ionicons } from "@expo/vector-icons";
 import { useRef, useState } from "react";
-import { KeyboardAvoidingView, Pressable, Text, TextInput, View } from "react-native";
+import { Pressable, Text, TextInput, View } from "react-native";
+import DateTimePicker, { DateTimePickerEvent } from "@react-native-community/datetimepicker";
+import { Ionicons } from "@expo/vector-icons";
+import { dimensions } from "@/assets/dimensions";
+import { colors } from "@/assets/colors";
 
 type Props = {
     children: React.ReactNode;
-    palceholder?: string;
-    teclado?: "default" | "numeric" | "email-address" | "url" ;
-    limiteCaracteres?: number;
-    espacioAmplio?: boolean;
     nombreIcono?: React.ComponentProps<typeof Ionicons>['name'];
     posicionIcono?: "dentro" | "fuera" ;
     bloqueado?: boolean;
-    valor?: string;
     manejarCambio?: (text: string) => void;
 };
 
-export default function InputSimple({children:titulo, palceholder, teclado, limiteCaracteres, espacioAmplio, nombreIcono, posicionIcono, bloqueado=false, valor, manejarCambio}: Props) {
+export default function InputHora({children:titulo, nombreIcono, posicionIcono, bloqueado=false, manejarCambio}: Props) {
     const [enfocado, actualizarEnfocado] = useState(false);
-    const enfocarCampo = useRef<TextInput>(null);
+    // const enfocarCampo = useRef<TextInput>(null);
     
+    const [hora, actualizarHora] = useState<Date|null>(null);
+    const [visibilidadSelectorHora, actualizarVisibilidadSelectorHora] = useState(false);
+    const actualizarCampo = (event: DateTimePickerEvent, seleccionarHora?: Date) => {
+        actualizarVisibilidadSelectorHora(false);
+        if (seleccionarHora) {
+            actualizarHora(seleccionarHora);
+        }
+        actualizarEnfocado(false)
+    }
+
     const icono = nombreIcono ? (
         <View style={styles.iconoEnFila}>
         <Ionicons 
@@ -31,15 +37,14 @@ export default function InputSimple({children:titulo, palceholder, teclado, limi
         />
         </View>
     ): null;
-    
+
     return(
-        <KeyboardAvoidingView>
-        <Pressable
-            disabled={bloqueado}
-            onPress={() => {
-                    if (enfocarCampo.current) {
-                        enfocarCampo.current.focus();
-                    }}
+        <Pressable 
+        disabled={bloqueado}    
+        onPress={() => {
+                    actualizarVisibilidadSelectorHora(true);
+                    actualizarEnfocado(true);
+                    }
             }
         >
         <View style={styles.contenedor}>
@@ -47,7 +52,7 @@ export default function InputSimple({children:titulo, palceholder, teclado, limi
                 style={[
                     styles.tituloInput, 
                     enfocado && styles.textoResaltado,
-                ]}>
+            ]}>
                 {titulo}
             </Text>
             <View
@@ -63,26 +68,25 @@ export default function InputSimple({children:titulo, palceholder, teclado, limi
                     bloqueado && styles.inputBloqueado,
                     posicionIcono === "dentro" && styles.componentesEnFila,
                     posicionIcono === "fuera" && {flex:1},
-                ]}
-            >
+            ]}>
             {posicionIcono === "dentro" && icono}
             <TextInput
-                ref={enfocarCampo}
-                placeholder={palceholder}
-                keyboardType={teclado}
+                // ref={enfocarCampo}
                 onChangeText={manejarCambio}
-                onFocus={() => actualizarEnfocado(true)}
-                onBlur={() => actualizarEnfocado(false)}
-                maxLength={limiteCaracteres}
-                multiline={espacioAmplio ? true : false}
-                numberOfLines={espacioAmplio ? 5 : 1}
-                editable={!bloqueado}
-                value={valor}
+                placeholder="HH:MM a.m./p.m."
+                editable={false}
+                value={hora ? hora.toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit", hour12: true }) : ""}
             ></TextInput>
+            { visibilidadSelectorHora &&
+            (<DateTimePicker 
+                value={hora ? hora : new Date()}
+                mode="time"
+                onChange={actualizarCampo}
+            />)
+            }
             </View>
             </View>
         </View>
         </Pressable>
-        </KeyboardAvoidingView>
     );
 }

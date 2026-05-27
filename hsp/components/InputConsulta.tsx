@@ -13,10 +13,11 @@ type Props = {
     espacioAmplio?: boolean;
     nombreIcono?: React.ComponentProps<typeof Ionicons>['name'];
     posicionIcono?: "dentro" | "fuera" ;
+    valor?: string;
     funConsultar?: (text: string) => void;
 };
 
-export default function InputConsulta({children:titulo, palceholder, teclado, limiteCaracteres, espacioAmplio, nombreIcono, posicionIcono,funConsultar}: Props) {
+export default function InputConsulta({children:titulo, palceholder, teclado, limiteCaracteres, espacioAmplio, nombreIcono, posicionIcono, valor, funConsultar}: Props) {
     const [enfocado, actualizarEnfocado] = useState(false);
     const enfocarCampo = useRef<TextInput>(null);
     
@@ -39,7 +40,7 @@ export default function InputConsulta({children:titulo, palceholder, teclado, li
                     }}
             }
         >
-        <View style={styles.camposTexto}>
+        <View style={styles.contenedor}>
             <Text 
                 style={[
                     styles.tituloInput, 
@@ -72,6 +73,7 @@ export default function InputConsulta({children:titulo, palceholder, teclado, li
                 maxLength={limiteCaracteres}
                 multiline={espacioAmplio ? true : false}
                 numberOfLines={espacioAmplio ? 5 : 1}
+                value={valor}
             ></TextInput>
             </View>
             </View>

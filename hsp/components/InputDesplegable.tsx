@@ -13,9 +13,11 @@ type Props = {
     opciones: (string)[];
     nombreIcono?: React.ComponentProps<typeof Ionicons>['name'];
     posicionIcono?: "dentro" | "fuera" ;
+    bloqueado?: boolean;
+    manejarCambio?: (text: string) => void;
 };
 
-export default function InputDesplegable({children:titulo, palceholder, opciones, nombreIcono, posicionIcono}: Props) {
+export default function InputDesplegable({children:titulo, palceholder, opciones, nombreIcono, posicionIcono, bloqueado=false, manejarCambio}: Props) {
     const [enfocado, actualizarEnfocado] = useState(false);
     // const enfocarCampo = useRef<TextInput>(null);
     
@@ -34,13 +36,14 @@ export default function InputDesplegable({children:titulo, palceholder, opciones
     return(
         <View>
             <Pressable
+                disabled={bloqueado}
                 onPress={() => {
                         actualizarVisibilidadOpciones(true);
                         actualizarEnfocado(true);
                         }
                 }
             >
-            <View style={styles.camposTexto}>
+            <View style={styles.contenedor}>
                 <Text 
                     style={[
                         styles.tituloInput,
@@ -58,12 +61,14 @@ export default function InputDesplegable({children:titulo, palceholder, opciones
                     style={[
                         styles.inputSimple,
                         enfocado && styles.inputResaltado,
+                        bloqueado && styles.inputBloqueado,
                         posicionIcono === "dentro" && styles.componentesEnFila,
                         posicionIcono === "fuera" && {flex:1},
                 ]}>
                 {posicionIcono === "dentro" && icono}
                 <TextInput
                     // ref={enfocarCampo}
+                    onChangeText={manejarCambio}
                     placeholder={palceholder}
                     editable={false}
                     value={opcionSeleccionada ? opcionSeleccionada : ""}
@@ -77,7 +82,7 @@ export default function InputDesplegable({children:titulo, palceholder, opciones
                 animationType="slide"
             >
                 <Titulos>{titulo}</Titulos>
-                <View style={[styles.inputSimple, styles.camposTexto]}>
+                <View style={[styles.marco, styles.contenedor]}>
                     <FlatList
                         data={opciones}
                         keyExtractor={(item, index) => index.toString()}
@@ -92,7 +97,6 @@ export default function InputDesplegable({children:titulo, palceholder, opciones
                             actualizarEnfocado(false);
                             }}
                         >
-
                         <Text style={styles.opcion}>{item}</Text>
                         </Pressable>
                         )}

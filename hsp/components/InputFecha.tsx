@@ -10,16 +10,18 @@ type Props = {
     children: React.ReactNode;
     nombreIcono?: React.ComponentProps<typeof Ionicons>['name'];
     posicionIcono?: "dentro" | "fuera" ;
+    bloqueado?: boolean;
+    manejarCambio?: (text: string) => void;
 };
 
-export default function InputFecha({children:titulo, nombreIcono, posicionIcono}: Props) {
+export default function InputFecha({children:titulo, nombreIcono, posicionIcono, bloqueado=false, manejarCambio}: Props) {
     const [enfocado, actualizarEnfocado] = useState(false);
     // const enfocarCampo = useRef<TextInput>(null);
     
     const [fecha, actualizarFecha] = useState<Date|null>(null);
-    const [visibilidadSelectorFecha, actualizarVisibilidadSelectoFecha] = useState(false);
+    const [visibilidadSelectorFecha, actualizarVisibilidadSelectorFecha] = useState(false);
     const actualizarCampo = (event: DateTimePickerEvent, seleccionarFecha?: Date) => {
-        actualizarVisibilidadSelectoFecha(false);
+        actualizarVisibilidadSelectorFecha(false);
         if (seleccionarFecha) {
             actualizarFecha(seleccionarFecha);
         }
@@ -37,14 +39,15 @@ export default function InputFecha({children:titulo, nombreIcono, posicionIcono}
     ): null;
 
     return(
-        <Pressable 
+        <Pressable
+            disabled={bloqueado}
             onPress={() => {
-                    actualizarVisibilidadSelectoFecha(true);
+                    actualizarVisibilidadSelectorFecha(true);
                     actualizarEnfocado(true);
                     }
             }
         >
-        <View style={styles.camposTexto}>
+        <View style={styles.contenedor}>
             <Text 
                 style={[
                     styles.tituloInput, 
@@ -62,12 +65,14 @@ export default function InputFecha({children:titulo, nombreIcono, posicionIcono}
                 style={[
                     styles.inputSimple,
                     enfocado && styles.inputResaltado,
+                    bloqueado && styles.inputBloqueado,
                     posicionIcono === "dentro" && styles.componentesEnFila,
                     posicionIcono === "fuera" && {flex:1},
             ]}>
             {posicionIcono === "dentro" && icono}
             <TextInput
                 // ref={enfocarCampo}
+                onChangeText={manejarCambio}
                 placeholder="DD/MM/AAAA"
                 editable={false}
                 value={fecha ? fecha.toLocaleDateString("es-CO") : ""}

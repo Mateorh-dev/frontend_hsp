@@ -3,21 +3,18 @@ import { Text, View } from "react-native";
 
 type Props = {
     children: React.ReactNode;
-    resaltado?: boolean;
+    color?: "azul" | "amarillo" | "verde" | "magenta" | "gris";
     contenedor?: boolean;
 };
 
-export default function Subtitulos({children: escrito, resaltado=false, contenedor=true}: Props) {
+export default function Etiquetas({children: escrito, color="azul", contenedor=true}: Props) {
     const componente = (
-        <Text style={[
-            styles.subtitulo,
-            resaltado && styles.textoResaltado,
-            ]}>
+        <Text style={[styles.etiqueta, styles[color]]}>
         {escrito}
         </Text>
     );
     return (
-        contenedor ? (
+    contenedor ? (
         <View style={styles.contenedor}>
             {componente}
         </View>

@@ -4,7 +4,9 @@ import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
- return (
+  const isLoggedIn = true;
+
+  return (
   <Tabs
     initialRouteName="index"
     screenOptions={{
@@ -19,10 +21,21 @@ export default function TabsLayout() {
     tabBarInactiveTintColor:colors.tonosPrimario[800],
     tabBarInactiveBackgroundColor:colors.tonosPrimario[100],
   }}>
+    <Tabs.Protected guard={isLoggedIn}>
     <Tabs.Screen name="registrarTratamiento" options={{
       headerTitle:"Registrar Tratamiento",
       tabBarLabel:"Tratamientos",
       tabBarIcon:({focused, color}) => <Ionicons
+      name={focused ? "medkit" : "medkit-outline"}
+      size={dimensions.figura.s}
+      color={color}
+      />
+    }}/>
+    </Tabs.Protected>
+    <Tabs.Screen name="registrarCita" options={{
+      headerTitle: "Registrar Cita",
+      tabBarLabel: "Citas",
+      tabBarIcon: ({focused, color}) => <Ionicons
       name={focused ? "document-text" : "document-text-outline"}
       size={dimensions.figura.s}
       color={color}
