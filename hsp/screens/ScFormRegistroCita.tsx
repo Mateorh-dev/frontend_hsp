@@ -1,3 +1,5 @@
+import { colors } from "@/assets/colors";
+import { dimensions } from "@/assets/dimensions";
 import { styles } from "@/assets/styles";
 import Boton from "@/components/Boton";
 import InputDesplegable from "@/components/InputDesplegable";
@@ -8,6 +10,7 @@ import SeparadorHorizontal from "@/components/SeparadorHorizontal";
 import Subtitulos from "@/components/Subtitulos";
 import Textos from "@/components/Textos";
 import api from "@/src/configAxios";
+import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
@@ -134,7 +137,7 @@ export default function FormularioCitas({esModular=false}: Props) {
       >
         Estado
       </InputDesplegable>
-      {/* <InputSimple>Patologia</InputSimple>
+      <InputSimple>Patologia</InputSimple>
       <InputSimple 
       teclado="numeric" 
       nombreIcono="card" 
@@ -158,7 +161,7 @@ export default function FormularioCitas({esModular=false}: Props) {
         size={dimensions.figura.l}
         color={colors.primario}
       />
-      </View> */}
+      </View>
       <Boton funcion={poapiCita} bloqueado={botonBloqueado}>Registrar Cita</Boton>
     </ScrollView>
   );

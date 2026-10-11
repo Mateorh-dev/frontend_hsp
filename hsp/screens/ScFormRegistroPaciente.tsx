@@ -2,6 +2,7 @@ import { colors } from "@/assets/colors";
 import { dimensions } from "@/assets/dimensions";
 import { styles } from "@/assets/styles";
 import InputFecha from "@/components/InputFecha";
+import InputHora from "@/components/InputHora";
 import InputSimple from "@/components/InputSimple";
 import SeparadorHorizontal from "@/components/SeparadorHorizontal";
 import Subtitulos from "@/components/Subtitulos";
@@ -112,7 +113,7 @@ export default function FormularioPacientes({esModular=false}: Props) {
       >
         Telefono
       </InputSimple>
-      {/* <InputSimple 
+      <InputSimple 
       teclado="email-address" 
       nombreIcono="mail" 
       posicionIcono="fuera"
@@ -135,12 +136,12 @@ export default function FormularioPacientes({esModular=false}: Props) {
       >
         Fecha nacimiento
       </InputFecha>
-      <InputFecha2
+      <InputHora
       nombreIcono="time" 
       posicionIcono="fuera"
       >
       HORA
-      </InputFecha2>
+      </InputHora>
       <InputSimple 
       teclado="numeric" 
       limiteCaracteres={5} 
@@ -151,7 +152,7 @@ export default function FormularioPacientes({esModular=false}: Props) {
       <InputSimple>Direccion de residencia</InputSimple>
       <InputSimple>Profesion</InputSimple>
       <InputSimple espacioAmplio>Alergias</InputSimple>
-      <InputSimple espacioAmplio>Antecedentes</InputSimple> */}
+      <InputSimple espacioAmplio>Antecedentes</InputSimple>
       <View style={[styles.contenedor, styles.botonPrincipal]}>
         <Text style={styles.contenidoBotonPrincipal}>Registrar Paciente</Text>
       </View>
