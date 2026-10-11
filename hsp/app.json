@@ -7,9 +7,8 @@
     "icon": "./assets/icon/diseño_3caja_x1024.png",
     "scheme": "hsp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "icon": "./assets/expo.icon"
     },
     "android": {
       "adaptiveIcon": {
@@ -18,10 +17,10 @@
         "backgroundImage": "./assets/icon/diseño_3caja_x512.png",
         "monochromeImage": "./assets/icon/diseño_3caja_x432.png"
       },
-      "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
+      "bundler": "metro",
       "output": "static",
       "favicon": "./assets/icon/diseño_3caja_x48.png"
     },
@@ -31,15 +30,13 @@
         "expo-splash-screen",
         {
           "image": "./assets/icon/diseño_3caja_x1024.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
           "backgroundColor": "#456bd5",
           "dark": {
             "backgroundColor": "#002060"
-          }
+          },
+          "imageWidth": 76
         }
       ],
-      "@react-native-community/datetimepicker",
       "expo-secure-store"
     ],
     "experiments": {
